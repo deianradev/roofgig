@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>venueSearch</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <!-- Searchbar -->
+  <ion-searchbar placeholder="Where to..." showCancelButton="focus"></ion-searchbar>
+
+  <!-- Dates -->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-icon name="calendar" slot="end"></ion-icon>
+          <ion-label>From</ion-label>
+          <ion-datetime [(ngModel)]="fromDate" displayFormat="DDD MMM D, YYYY" [min]="currentDate.getFullYear()" [max]="currentDate.getFullYear() + 1"
+            [value]="currentDate"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-icon name="calendar" slot="end"></ion-icon>
+          <ion-label>To</ion-label>
+          <ion-datetime [(ngModel)]="toDate" displayFormat="DDD MMM D, YYYY" [min]="currentDate.getFullYear()" [max]="currentDate.getFullYear() + 1"
+            [value]="currentDate + 1"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button margin-top (click)="onSearch()" expand="block">
+    Search
+  </ion-button>
+  <!-- <ion-item>
+    <ion-label position="floating">To where...</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>From...</ion-label>
+    <ion-datetime [(ngModel)]="fromDate" displayFormat="DDDD MMM D, YYYY" [min]="currentDate.getFullYear()" [max]="currentDate.getFullYear() + 1" [value]="currentDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Venue Capacity</ion-label>
+    <ion-input type="number"></ion-input>
+  </ion-item>
+
+  <ion-button margin-top>
+    Search
+  </ion-button> -->
+</ion-content>

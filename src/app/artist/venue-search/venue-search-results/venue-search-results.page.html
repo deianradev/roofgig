@@ -1,0 +1,41 @@
+<ion-header color="primary">
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-back-button defaultHref="/tabs/venue-search"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Venue Serach Results</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Search Results
+    </ion-list-header>
+    <ion-item *ngFor="let item of items" (click)="onContact()" detail>
+      <ion-thumbnail slot="start">
+        <ion-img [src]="item.src"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>Lorem ipsum</h3>
+        <p>{{item.longDesc}}</p>
+      </ion-label>
+      <!-- <ion-button (click)="onContact()">Contact</ion-button> -->
+    </ion-item>
+  </ion-list>
+
+
+
+
+  <!-- <ion-list>
+  <ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-list> -->
+</ion-content>
