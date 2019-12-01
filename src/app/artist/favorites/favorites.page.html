@@ -1,16 +1,13 @@
-<ion-header color="primary">
+<ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/venue-search"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Venue Search Results</ion-title>
+    <ion-title>Favorites</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <ion-list-header>
-      Search Results
+      Favorites
     </ion-list-header>
     <ion-item *ngFor="let venue of venues" [routerLink]="['/', 'tabs', 'venue-search', venue.venueId]" detail>
       <ion-thumbnail slot="start">
@@ -20,22 +17,6 @@
         <h3>{{ venue.title }}</h3>
         <p>{{ venue.description }}</p>
       </ion-label>
-      <!-- <ion-button (click)="onContact()">Contact</ion-button> -->
     </ion-item>
   </ion-list>
-
-
-
-
-  <!-- <ion-list>
-  <ion-item>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
-</ion-list> -->
 </ion-content>

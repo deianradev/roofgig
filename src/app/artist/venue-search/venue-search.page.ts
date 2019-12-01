@@ -18,7 +18,8 @@ export class VenueSearchPage implements OnInit {
   }
 
   onSearch() {
+
     //this.router.navigateByUrl('/tabs/venue-search/venue-search-results');
-    this.navCtrl.navigateForward('/tabs/venue-search/venue-search-results')
+    this.navCtrl.navigateForward('/tabs/venue-search/venue-search-results');
   }
 }

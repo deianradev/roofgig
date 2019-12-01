@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Venue } from '../../shared/models/venue.model';
+import { NavController } from '@ionic/angular';
+import { VenueService } from '../services/venue.service';
 
 @Component({
   selector: 'app-venue-search-results',
@@ -8,33 +11,22 @@ import { Router } from '@angular/router';
 })
 export class VenueSearchResultsPage implements OnInit {
 
-  items = [{
-    text: 'TGI Fridays',
-    src: 'https://media-cdn.tripadvisor.com/media/photo-s/10/e2/be/d8/angel-s-steak-pub-interior.jpg',
-    longDesc: 'The one and only...'
-  },
-  {
-    text: "O'Sullivans",
-    src: 'https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2019/01/23130814/capitol-theater1.jpg',
-    longDesc: 'Come out to have a good time...'
-  },
-  {
-    text: "The Stadium",
-    src: 'https://images.pexels.com/photos/569849/pexels-photo-569849.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    longDesc: 'Oh the memories here...'
-  },
-  {
-    text: "The Opera House",
-    src: 'https://images.pexels.com/photos/2372945/pexels-photo-2372945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    longDesc: 'Stop by and visit us...'
-  }];
+  venues: Venue[];
 
-  constructor(private router: Router) { }
+  constructor(private route: ActivatedRoute, private navCtrl: NavController, private venueService: VenueService) { }
 
   ngOnInit() {
+    this.venues = this.venueService.venues;
+    // this.route.paramMap.subscribe(paramMap => {
+    //   if (!paramMap.has('venueId')) {
+    //     this.navCtrl.navigateBack('artist/venue-search/venue-search');
+    //     return;
+    //   }
+    //   this.venue = this.venueService.getVenueById(paramMap.get('venueId'));
+    // })
   }
 
   onContact() {
-    this.router.navigateByUrl('/venue-details');
+    //this.router.navigateByUrl('/venue-details');
   }
 }

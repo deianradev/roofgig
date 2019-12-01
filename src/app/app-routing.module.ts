@@ -5,7 +5,19 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },  {
+    path: 'favorites',
+    loadChildren: () => import('./artist/favorites/favorites.module').then( m => m.FavoritesPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./artist/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'upcoming',
+    loadChildren: () => import('./artist/upcoming/upcoming.module').then( m => m.UpcomingPageModule)
+  },
+
   // {
   //   path: 'auth',
   //   loadChildren: () => import('./auth/auth/auth.module').then(m => m.AuthPageModule)

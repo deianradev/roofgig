@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Venue Details</ion-title>
+    <ion-title>{{ venue.title }}</ion-title>
     <ion-button size="small" slot="end" color="tertiary" margin>Message</ion-button>
   </ion-toolbar>
 </ion-header>
@@ -11,48 +11,87 @@
 <ion-content>
   <!-- images slides -->
   <ion-slides pager="true" [options]="slideOpts" class="slider">
-    <ion-slide class="slider-slide">
-      <ion-img src="https://images.pexels.com/photos/569849/pexels-photo-569849.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></ion-img>
-    </ion-slide>
-    <ion-slide class="slider-slide">
-      <ion-img src="https://images.pexels.com/photos/878998/pexels-photo-878998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></ion-img>
-    </ion-slide>
-    <ion-slide class="slider-slide">
-      <ion-img src="https://images.pexels.com/photos/2035648/pexels-photo-2035648.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></ion-img>
+    <ion-slide class="slider-slide" *ngFor="let photo of venue.photos">
+      <ion-img [src]="photo">
+      </ion-img>
     </ion-slide>
   </ion-slides>
 
   <!-- Location -->
   <ion-item>
-    <p>Arlington, VA, United States</p>
+    <ion-grid class="no-padding">
+      <ion-row>
+        <ion-col class="no-padding">
+          <div class="ion-text-start">
+            {{ venue.title }}
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="ion-text-end">
+            <ion-icon (click)="addToFavs()" name="heart" color="{{ isFav ? 'danger': ''}}"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
   </ion-item>
   <!-- Bio  -->
   <ion-item>
     <ion-label>
-      Bio
+      <p>Artist Commission: {{ venue.commission | currency}}</p>
     </ion-label>
   </ion-item>
   <ion-item>
     <ion-label class="ion-text-wrap">
-      <p>This is a great outdoor venue. It is also a great indoor venue for winter concerts. is also a great indoor venue for
-        winter concerts. is also a great indoor venue for winter concerts. is also a great indoor venue for winter concerts.
+      <p>{{ venue.description }}
       </p>
     </ion-label>
   </ion-item>
 
+  <ion-item>
 
+    <ion-grid>
+      <!-- <ion-label>Contact</ion-label> -->
+      <ion-row>
+        <ion-col>
+          <div (click)="test(venue.socialMedia[0].socialMediaUrl)">
+            <ion-icon class="contact-icons" name="globe"></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div (click)="test(venue.socialMedia[0].socialMediaUrl)">
+            <ion-icon class="contact-icons" name="logo-twitter"></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div (click)="test(venue.socialMedia[0].socialMediaUrl)">
+            <ion-icon class="contact-icons" name="logo-youtube"></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div (click)="test(venue.socialMedia[0].socialMediaUrl)">
+            <ion-icon class="contact-icons" name="logo-instagram"></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div (click)="test(venue.socialMedia[0].socialMediaUrl)">
+            <ion-icon class="contact-icons" name="logo-facebook"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
   <!-- contact  -->
-  <ion-list>
+  <!-- <ion-list>
     <ion-item>
       <ion-icon name="globe"></ion-icon>
       <ion-label padding-left>
         <p>https//:example.com</p>
       </ion-label>
     </ion-item>
-  </ion-list>
 
 
-
-
+  </ion-list> -->
 
 </ion-content>

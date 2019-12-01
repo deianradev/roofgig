@@ -28,22 +28,32 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'favorites',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../artist/favorites/favorites.module').then(m => m.FavoritesPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'upcoming',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../artist/upcoming/upcoming.module').then(m => m.UpcomingPageModule)
+          }
+        ]
+      },
+      {
+        path: 'profile',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../artist/profile/profile.module').then(m => m.ProfilePageModule)
           }
         ]
       },
