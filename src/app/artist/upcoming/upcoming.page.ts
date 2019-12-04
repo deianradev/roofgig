@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UpcomingService } from './services/upcoming.service';
+import { UpcomingGig } from '../shared/models/upcomingGig.model';
 
 @Component({
   selector: 'app-upcoming',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpcomingPage implements OnInit {
 
-  constructor() { }
+  upcomingGigs: UpcomingGig[];
+  constructor(private upcomingGigService: UpcomingService) {
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+
+  }
+
+  ionViewDidEnter() {
+    this.upcomingGigs = this.upcomingGigService.upcomingGigs;
+  }
 }

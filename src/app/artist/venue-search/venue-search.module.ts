@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { VenueSearchPageRoutingModule } from './venue-search-routing.module';
 
 import { VenueSearchPage } from './venue-search.page';
+import { FiltersPage } from './filters/filters.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { VenueSearchPage } from './venue-search.page';
     IonicModule,
     VenueSearchPageRoutingModule
   ],
-  declarations: [VenueSearchPage]
+  declarations: [VenueSearchPage, FiltersPage],
+  entryComponents: [FiltersPage]
 })
-export class VenueSearchPageModule {}
+export class VenueSearchPageModule { }

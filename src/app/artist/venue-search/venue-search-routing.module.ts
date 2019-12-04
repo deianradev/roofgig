@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: VenueSearchPage
+  },  {
+    path: 'filters',
+    loadChildren: () => import('./filters/filters.module').then( m => m.FiltersPageModule)
   }
+
 ];
 
 @NgModule({

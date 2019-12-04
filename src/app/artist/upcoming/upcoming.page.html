@@ -1,9 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>upcoming</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Upcoming Gigs</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card *ngFor="let upcoming of upcomingGigs">
+    <img [src]="upcoming.venue.src" />
+    <ion-card-header>
+      <ion-card-subtitle>{{ upcoming.gigLocation }} - {{ upcoming.gigDate | date: 'dd/MM/yyyy'}}</ion-card-subtitle>
+      <ion-card-title>{{ upcoming.venue.title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Some description here, but what should it be? Some description here, but what should it be?
+      Some description here, but what should it be?
+    </ion-card-content>
+  </ion-card>
+
 
 </ion-content>

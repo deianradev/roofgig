@@ -52,7 +52,5 @@ export class FavoritesService {
   getVenueById(id: string) {
     return { ...this._venues.find(p => p.venueId === id) }
   }
-  testing() {
-    return 'testing'
-  }
+
 }
